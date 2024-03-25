@@ -1,28 +1,35 @@
 # e-commerce
 
-## Project setup
+## Initial Project Setup
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Start the Front-end
+
 ```
 yarn serve
 ```
-### Compiles and hot-reloads for development
+
+### Start the Node.js Backend
+
 ```
 yarn run start
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn build
 ```
 
 ### Lints and fixes files
+
 ```
 yarn lint
 ```
 
 ### Customize configuration
+
 See [Configuration Reference](https://cli.vuejs.org/config/).
