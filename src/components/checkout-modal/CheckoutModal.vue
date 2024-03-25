@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { computed, watch } from "vue";
+import { computed } from "vue";
 export default {
   name: "CheckoutModal",
   props: {
@@ -41,15 +41,7 @@ export default {
     function closeModal() {
       emit("close");
     }
-    watch(
-      () => props.cartData,
-      (newValue) => {
-        console.log("cartData updated:", newValue);
-      },
-      {
-        deep: true,
-      }
-    );
+
     return {
       closeModal,
       totalSum,

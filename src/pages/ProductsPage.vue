@@ -3,7 +3,7 @@
     <h1>Products</h1>
     <div v-if="isLoading" class="loader"></div>
     <div v-else class="card-list">
-      <Card :products="products" />
+      <Card />
     </div>
     <div class="page-navigation">
       <button @click="goToPrevPage" :disabled="!canGoPrev">Prev</button>
