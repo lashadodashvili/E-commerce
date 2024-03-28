@@ -9,19 +9,30 @@
       <button @click="goToPrevPage" :disabled="!canGoPrev">Prev</button>
       <button @click="goToNextPage" :disabled="!canGoNext">Next</button>
     </div>
+    <div>
+      <Slider
+        :items="data"
+        :itemsPerPage="3"
+        transitionType="fade"
+        :transitionDuration="1"
+      />
+    </div>
   </div>
 </template>
 
 <script>
 import { useProductsStore } from "../stores/products";
-import { computed, onMounted, watch } from "vue";
+import { computed, onMounted, watch, ref } from "vue";
 import { useRoute, useRouter } from "vue-router";
+import { Data } from "../stores/dumb-data";
 import Card from "../components/card/card.vue";
+import Slider from "../components/slider /slider.vue";
 
 export default {
   name: "ProductsPage",
   components: {
     Card,
+    Slider,
   },
   setup() {
     const productsStore = useProductsStore();
@@ -44,12 +55,13 @@ export default {
         goToPage(currentPage.value);
       }
     );
-
+    const data = ref(Data);
     return {
       products: productsStore.products,
       isLoading: computed(() => productsStore.isLoading),
       goToNextPage: () => goToPage(currentPage.value + 1),
       goToPrevPage: () => goToPage(currentPage.value - 1),
+      data,
       canGoNext: computed(
         () => currentPage.value < productsStore.pagination.totalPages
       ),
